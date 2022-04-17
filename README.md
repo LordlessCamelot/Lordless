@@ -5,5 +5,5 @@
 
 # **拉库**
  ```
- ql repo https://github.com/LordlessCamelot/Camelot.git "jd_|jx_|jdCookie" "activity|backUp" "^jd[^_]|USER|magic|utils|function|sign|sendNotify|ql|JDJR"
+ ql repo https://github.com/LordlessCamelot/Lordless.git "" "backup|expire" "HT|ql|sendNotify"
  ```
