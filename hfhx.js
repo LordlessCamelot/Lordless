@@ -9,7 +9,7 @@ APP：https://www.hsbcfts.com.cn/app/
 
 [task_local]
 #汇丰汇选
-30 0,8 * * * hfhx.js, tag=汇丰汇选
+30 6,18 * * * hfhx.js, tag=汇丰汇选
 */
 
 const $ = new Env('汇丰汇选');
