@@ -6,6 +6,10 @@ APP：https://www.hsbcfts.com.cn/app/
 多账号@隔开
 比如 hfhxhd='eyJleHAiOjE2NTMyMTQzNzQsImXXXXXXXXXXXXXXXXX'@'eyJleHAiOjE2NTMyMTQzNzQsImXXXXXXXXXXXXXXXXX'
 抓取随便一条APP的请求头部就会有
+
+[task_local]
+#汇丰汇选
+30 0,8 * * * hfhx.js, tag=汇丰汇选
 */
 
 const $ = new Env('汇丰汇选');
