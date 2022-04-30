@@ -8,7 +8,7 @@
 多账号@隔开
 比如 export xjhd='eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.XXXXXX'@'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.XXXXXX'
 */
-//0 */2 * * * xj.js 
+// 0 */2 * * * xj.js
 const $ = new Env('习酒');
 var request = require("request");
 let status;
@@ -144,7 +144,7 @@ $.get(indexapi(`anti-channeling/public/index.php/api/v2/Member/getJwt`), async (
               await dailyShare()
               await realscene()
               //await sorghum()
-              for(let i=0;i<5;i++){
+              for(let i=0;i<1;i++){
                   await watering()
                   await manuring()
               }
@@ -507,7 +507,7 @@ function sorghumindex() {
  return new Promise((resolve) => {
   
 $.get(xjget(`garden/sorghum/index`,token), async (err, resp, data) => {
-     //$.log(data)  
+    // $.log(data)  
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
@@ -522,16 +522,17 @@ $.get(xjget(`garden/sorghum/index`,token), async (err, resp, data) => {
                $.log(list[i].serial_number+"号田下次成熟时间："+list[i]['crop_time'])
                typeid = list[i].id
                await harvest(typeid)
-               //await sorghum('772352',1)
-              // await $.wait(3000)
-               //await sorghum('772352',2)
-               }else 
-               if(list[i].status == -1){
-               await sorghum('772352',1)
-               await $.wait(3000)
-               await sorghum('772352',2)  
-                   
+               await sorghum(typeid,1)
+               //await $.wait(3000)
+               //await sorghum(typeid,2)
                }
+               //else 
+               //if(list[i].status == -1){
+               //await sorghum(typeid,1)
+               //await $.wait(3000)
+               //await sorghum(typeid,2)  
+                   
+               //}
              }
 
               
@@ -596,7 +597,7 @@ $.get(xjget(`garden/gardenmemberwine/index `,token), async (err, resp, data) => 
           if (safeGet(data)) {
             data = JSON.parse(data);
              if(data.err==0){
- if(data.total=1){
+            if(data.total==1){
               console.log("酿酒成熟时间："+data.data[0].crop_time)  
               console.log('ID: '+data.data[0].id)
               if(data.data[0].status==4){
@@ -605,6 +606,7 @@ $.get(xjget(`garden/gardenmemberwine/index `,token), async (err, resp, data) => 
                   await harvestWine(data.data[0].id)
               }
  }else console.log('还未酿酒')
+ await makeWine() 
              }
              else if(data.err !== 0){
              console.log(data.msg)
@@ -685,7 +687,7 @@ $.get(xjget(`member/recommend/personal_center?phone_no=17683989907`,token), asyn
 function makeWine() {
  return new Promise((resolve) => {
   
-$.post(xjpost(`garden/gardenmemberwine/makeWine`,'volumn=200',token), async (err, resp, data) => {
+$.post(xjpost1(`garden/gardenmemberwine/makeWine`,'volumn=200',token), async (err, resp, data) => {
        
       try {
         if (err) {
@@ -729,7 +731,7 @@ $.get(xjget(`garden/Gardenmemberinfo/getMemberInfo`,token), async (err, resp, da
           if (safeGet(data)) {
             data = JSON.parse(data);
              if(data.err==0){
- if(data.data.manure!==0){
+
   console.log('积分:'+data.data.integration)
    console.log('高粱:'+data.data.sorghum)
    console.log('小麦:'+data.data.wheat)
@@ -738,7 +740,7 @@ $.get(xjget(`garden/Gardenmemberinfo/getMemberInfo`,token), async (err, resp, da
    if(data.data.wine>0){
        await exchange(data.data.wine)
    }
-            } 
+            
                  
              }
              else if(data.err !== 0){
@@ -820,7 +822,7 @@ function xjget(a,token) {
 'Sec-Fetch-Site': 'same-site',
 'Sec-Fetch-Mode': 'cors',
 'Sec-Fetch-Dest': 'empty',
-'Referer': 'https://mallwm.exijiu.com/?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtZW1iZXJJbmZvIjp7ImlkIjo2Njc1Mjg1fSwiZXhwaXJlVGltZSI6MTY0Njg5NzIyNX0.nYQP50HmPvlvCdehusa2I2FQqNjbXahKfLRfhWcBLNc&ts=1646292416362',
+'Referer': 'https://mallwm.exijiu.com/',
 'Accept-Language': 'en-us,en',
 'Accept-Encoding':' gzip, deflate',
 'login_code': xjhd,
@@ -842,14 +844,35 @@ function xjpost(a,b,token) {
 'Sec-Fetch-Site': 'same-site',
 'Sec-Fetch-Mode': 'cors',
 'Sec-Fetch-Dest': 'empty',
-'Referer': 'https://mallwm.exijiu.com/?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtZW1iZXJJbmZvIjp7ImlkIjo2Njc1Mjg1fSwiZXhwaXJlVGltZSI6MTY0Njg5NzIyNX0.nYQP50HmPvlvCdehusa2I2FQqNjbXahKfLRfhWcBLNc&ts=1646292416362',
+'Referer': 'https://mallwm.exijiu.com/',
 'Accept-Language': 'en-us,en',
 'Accept-Encoding':' gzip, deflate',
 'login_code': xjhd,
     }
   }
 }
+function xjpost1(a,b,token) {
+  return {
 
+    url: `${host1}${a}`,
+    body:`${b}`,
+    headers: {
+'Host': 'apimallwm.exijiu.com',
+'Connection': 'keep-alive',
+'Authorization': token,
+'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat',
+'Content-Type': 'application/x-www-form-urlencoded',
+'Accept': 'application/json, text/plain, */*',
+'Sec-Fetch-Site': 'same-site',
+'Sec-Fetch-Mode': 'cors',
+'Sec-Fetch-Dest': 'empty',
+'Referer': 'https://mallwm.exijiu.com/',
+'Accept-Language': 'en-us,en',
+'Accept-Encoding':' gzip, deflate',
+'login_code': xjhd,
+    }
+  }
+}
 
 
 function safeGet(data) {
