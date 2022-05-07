@@ -12,13 +12,13 @@ export ksjsbAggressive=1
 
 [task_local]
 #快手极速版
-15 2-9 * * * ksjsb_enhance.js, tag=快手极速版
+15 9-15 * * * ksjsb_enhance.js, tag=快手极速版
 
 #IOS用第一个，安卓用第二个
 hostname = api.kuaisho*.com
 hostname = open.kuaisho*.com
 */
-const $$ = Envcc('快手极速版-三合一');
+const $$ = Envcc('');
 let acckey = $$["isNode"]() ? process["env"]["cdkey"] ? process["env"]["cdkey"] : '' : $$["getdata"]("cdkey") ? $$["getdata"]("cdkey") : '',
     all_msg = '',
     mac = '';
@@ -153,7 +153,7 @@ const _0x1eb2d5 = {
   'invite': 2008
 },
       _0x3355c4 = {
-  'extParams': "56dfe31594b858e69ef613f5e97227fb03493544e59e2b2a726006e2852ec1040cd969d4748c460ecf574cc487214a91f70592aa8b2225630027c39ca2c544027efa65815d1acea23cb503034b12641c",
+  'extParams': "56dfe31594b858e69ef613f5e97227fbe9979240d7caecf84db127b47a4a8bb0a744376361788e9d4f8341978842c3a723b72e4befa3dc60a2c580bf4fc43399f798f286e2c8c3069effa1db27aa45bd",
   'businessId': 161,
   'pageId': 11101,
   'posId': 4683,
@@ -232,8 +232,8 @@ let _0x134a17 = new Date(),
     _0x459e63 = 1.07,
     _0x2e716e = 0,
     _0x5bc515 = "ksjsb",
-    _0x180c0c = "https://raw.githubusercontent.com/LordlessCamelot/Lordless/master/expire/lordless/ks.json",
-    ksjsbjk = "https://raw.githubusercontent.com/LordlessCamelot/Lordless/master/expire/lordless/ksjsb_enhance.json",
+    _0x180c0c = "",
+    ksjsbjk = "https://ziye0.coding.net/p/ziye/d/ql/git/raw/master/ksjsb-ziye.json",
     _0x75eec0 = "https://127.0.0.1/";
 
 class _0x9d8dda {
