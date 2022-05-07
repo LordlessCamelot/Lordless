@@ -1,5 +1,5 @@
 /*
-IOS/安卓： 快手极速版
+IOS/安卓： 快手极速版_10w
 内置热心网友的看广告json
 内置990金币
 
@@ -17,7 +17,7 @@ export ksjsbAggressive=1
 hostname = api.kuaisho*.com
 hostname = open.kuaisho*.com
 */
-const $ = Env('快手极速版-10w');
+const $$ = Envcc('');
 let acckey = $$["isNode"]() ? process["env"]["cdkey"] ? process["env"]["cdkey"] : '' : $$["getdata"]("cdkey") ? $$["getdata"]("cdkey") : '',
     all_msg = '',
     mac = '';
