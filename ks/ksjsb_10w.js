@@ -17,7 +17,7 @@ export ksjsbAggressive=1
 hostname = api.kuaisho*.com
 hostname = open.kuaisho*.com
 */
-const $$ = Envcc('快手极速版-10w');
+const $ = Env('快手极速版-10w');
 let acckey = $$["isNode"]() ? process["env"]["cdkey"] ? process["env"]["cdkey"] : '' : $$["getdata"]("cdkey") ? $$["getdata"]("cdkey") : '',
     all_msg = '',
     mac = '';
