@@ -1,13 +1,12 @@
 /*
-快手周周赚助力
+快手天天领现金助力
 变量为
 export ksjsbCookie='kuaishou.api_st=XXXX'
 多账号@隔开ksjsbCookie='kuaishou.api_st=XXXX'@'kuaishou.api_st=XXXX'
-
-0 0 * * * ksjsb_week.js tag=快手周周赚助力
+0 0 * * * ksjsb_lxj.js tag=快手天天领现金助力
 */
 
-const $ = new Env('快手周周赚助力');
+const $ = new Env('快手天天领现金助力');
 var request = require("request");
 let status;
 status = (status = ($.getval("hfhxstatus") || "1") ) > 1 ? `${status}` : ""; // 账号扩展字符
@@ -60,7 +59,7 @@ var timestamp = Math.round(new Date().getTime()/1000).toString();
                 ksjsbCookie = ksjsbCookieArr[k]
                 $.index = k + 1;
  
-          console.log(`\n开始【快脚周周赚助力${$.index}】`)
+          console.log(`\n开始【快脚天天领现金助力${$.index}】`)
 if ($.index === 2 &&3) break
 await encourage()
      
@@ -102,7 +101,7 @@ await encourage()
 function encourage() {
  return new Promise((resolve) => {
   
-$.get(ksget(`rest/zt/encourage/assistance/detail?assistanceMetaId=2`), async (err, resp, data) => {
+$.get(ksget(`rest/n/nebula/dailyCash/activity/detail?isFilterPopup=0&initGoldenBag=0`), async (err, resp, data) => {
   
       try {
         if (err) {
@@ -112,13 +111,13 @@ $.get(ksget(`rest/zt/encourage/assistance/detail?assistanceMetaId=2`), async (er
           if (safeGet(data)) {
             data = JSON.parse(data);
              if(data.result==1){
-               console.log('\n'+data.assistanceInfo.createNickName)  
-              console.log('\n邀请码：'+data.assistanceInfo.assistanceId)  
-              assistanceId = data.assistanceInfo.assistanceId
-      if (data.assistanceInfo && data.assistanceInfo.assistanceId && inviteCodes.length === 0) {
+               console.log('\n'+data.data.user.name)  
+              console.log('\n邀请码：'+data.data.boostId)  
+              assistanceId = data.data.boostId
+      if (data.data && data.data.boostId && inviteCodes.length === 0) {
                inviteCodes.push({
-                user: data.assistanceInfo.createNickName,
-                assistanceId: data.assistanceInfo.assistanceId,
+                user: data.data.user.name,
+                assistanceId: data.data.boostId,
                 
                 });
  }
@@ -140,8 +139,8 @@ $.get(ksget(`rest/zt/encourage/assistance/detail?assistanceMetaId=2`), async (er
 function help(a) {
  return new Promise((resolve) => {
   
-$.post(kspost(`rest/zt/encourage/assistance/friendAssist`,'{"assistanceId":"'+a+'"}'), async (err, resp, data) => {
-   //$.log('{"assistanceId":"'+a+'"}')
+$.post(kspost(`rest/n/nebula/dailyCash/activity/boost`,`{"boostId":${a},"type":0}`), async (err, resp, data) => {
+   
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
@@ -150,13 +149,13 @@ $.post(kspost(`rest/zt/encourage/assistance/friendAssist`,'{"assistanceId":"'+a+
           if (safeGet(data)) {
             data = JSON.parse(data);
              if(data.result==1){
-                console.log(data.msg) 
+                console.log('砍：'+data.data.amount) 
               
               
              
              }
              else if(data.result !== 1){
-             console.log(data.msg)
+             console.log(data.error_msg)
                  
              }
           }
@@ -169,6 +168,9 @@ $.post(kspost(`rest/zt/encourage/assistance/friendAssist`,'{"assistanceId":"'+a+
     })
   })
 }
+
+
+
 function kspost(a,body) {
   return {
 
@@ -176,18 +178,13 @@ function kspost(a,body) {
     body:`${body}`,
     headers: {
 'Connection': 'Keep-Alive',
-'Content-Type': 'application/json; Charset=UTF-8',
-'Accept':' */*',
-'Accept-Language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
-'Cookie': "kpn=NEBULA; kpf=ANDROID_PHONE; did=ANDROID_" + _0x4b5cde(16) + "; ver=9.10; appver=9.10.40.2474; language=zh-cn; countryCode=CN; sys=ANDROID_5.1; client_key=2ac2a76d; " + ksjsbCookie,
+'Content-Type': 'application/json;; Charset=UTF-8',
+'Accept': '*/*',
+'Accept-Language': 'zh-cn',
+'Cookie':"kpn=NEBULA; kpf=ANDROID_PHONE; did=ANDROID_" + _0x4b5cde(16) + "; ver=9.10; appver=9.10.40.2474; language=zh-cn; countryCode=CN; sys=ANDROID_5.1; client_key=2ac2a76d; " + ksjsbCookie,
+'Referer': 'https://nebula.kuaishou.com/rest/zt/encourage/assistance/friendAssist',
+'User-Agent': 'Mozilla/5.0 (Linux; Android 7.1.2; MI 9 Build/N2G47O; wv) AppleWebKit/707.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3913.70 Mobile Safari/537.36 Yoda/2.7.8-rc1 ksNebula/10.2.41.5857 OS_PRO_BIT/32 MAX_PHY_MEM/3479 AZPREFIX/zw ICFO/0 StatusHT/24 TitleHT/44 NetType/WIFI ISLP/1 ISDM/0 ISLB/0 locale/zh-cn evaSupported/false CT/0;',
 'Host': 'nebula.kuaishou.com',
-'Referer': 'https://nebula.kuaishou.com/nebula/daily-invite?fid=884090597&cc=panelPoster&shareMode=APP&followRefer=151&originShareId=16904645555440&shareMethod=PICTURE&kpn=NEBULA&subBiz=WEEK&shareId=16904645555440&shareObjectId=2707120162186179&shareUrlOpened=0&timestamp=1650719936450&layoutType=4&source=RETURN_POPUP&login_extra=ENLIVEN_POPULARITY_DIALOG',
-'User-Agent': 'Mozilla/5.0 (Linux; Android 10; PCAM00 Build/QKQ1.190918.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/90.0.4430.226 KsWebView/1.8.90.469 (rel;r) Mobile Safari/537.36 Yoda/2.8.1-rc3 ksNebula/10.3.20.3183 OS_PRO_BIT/64 MAX_PHY_MEM/5621 AZPREFIX/yz ICFO/0 StatusHT/32 TitleHT/44 NetType/WIFI ISLP/0 ISDM/0 ISLB/0 locale/zh-cn evaSupported/false CT/0',
-'Origin': 'https://nebula.kuaishou.com',
-'X-Requested-With': 'com.kuaishou.nebula',
-'Sec-Fetch-Site': 'same-origin',
-'Sec-Fetch-Mode': 'cors',
-'Sec-Fetch-Dest': 'empty',
 
     }
   }
@@ -222,7 +219,7 @@ function safeGet(data) {
     }
   } catch (e) {
     console.log(e);
-    console.log(`京东服务器访问数据为空，请检查自身设备网络情况`);
+    console.log(`访问数据为空，请检查自身设备网络情况`);
     return false;
   }
 }
