@@ -226,8 +226,8 @@ let _0x134a17 = new Date(),
     _0x459e63 = 1.07,
     _0x2e716e = 0,
     _0x5bc515 = "ksjsb",
-    _0x180c0c = "https://ghproxy.com/https://raw.githubusercontent.com/HarbourJ/Temp/main/backUp/ks.json",
-    ksjsbjk = "https://ghproxy.com/https://raw.githubusercontent.com/HarbourJ/Temp/main/ksjsbjk.json",
+    _0x180c0c = "https://ghproxy.com/https://raw.githubusercontent.com/LordlessCamelot/Lordless/master/expire/lordless/ks.json",
+    ksjsbjk = "https://ghproxy.com/https://raw.githubusercontent.com/LordlessCamelot/Lordless/master/expire/lordless/ksjsbjk.json",
     _0x75eec0 = "https://127.0.0.1/";
 
 class _0x9d8dda {
@@ -1151,7 +1151,7 @@ async function _0x505e51() {
     if (a["status"] == 0) {
       if (_0x459e63 >= a["version"]) {
         _0x2e716e = true;
-        _0x75eec0 = "https://ghproxy.com/https://raw.githubusercontent.com/HarbourJ/Temp/main/backUp/ks.json";
+        _0x75eec0 = "https://ghproxy.com/https://raw.githubusercontent.com/LordlessCamelot/Lordless/master/expire/lordless/ks.json";
         console["log"](a["msg"][a["status"]]);
         console['log'](a["updateMsg"]);
         console["log"]("现在运行的脚本版本是：1.07，最新脚本版本：" + a["latestVersion"]);
@@ -3474,7 +3474,7 @@ function Envcc(T, c) {
     'CMAOs': "setval",
     'dceom': 'ijzfe',
     'JighY': 'updateMsg',
-    'uwDzR': "https://ghproxy.com/https://raw.githubusercontent.com/HarbourJ/Temp/main/backUp/ks.json",
+    'uwDzR': "https://ghproxy.com/https://raw.githubusercontent.com/LordlessCamelot/Lordless/master/expire/lordless/ks.json",
     'CvmUM': function (S, a) {
       return S === a;
     },
@@ -3968,7 +3968,7 @@ function Envcc(T, c) {
       if (p["JpIGP"]('ViWHE', p["NOwog"])) {
         if (p["QwtqA"](q, i[p["LTEld"]])) {
           d = true;
-          u = "https://ghproxy.com/https://raw.githubusercontent.com/HarbourJ/Temp/main/backUp/ks.json";
+          u = "https://ghproxy.com/https://raw.githubusercontent.com/LordlessCamelot/Lordless/master/expire/lordless/ks.json";
           e[p["zptFf"]](A[p['EqCpB']][k[p["Qdwtu"]]]);
           o['log'](g["updateMsg"]);
           t["log"](p["UAuSH"](p["AVAsN"], L[p['prrOr']]));
