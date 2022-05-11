@@ -1,6 +1,5 @@
 /*
-2022/5/12 第一版
-有人说文件太大，来个缩小版
+该版本为自定义版本
 自定助力
 自定金币
 自定接口
@@ -24,9 +23,9 @@ ksjsbyq 就是你的邀请码地址:
 */
 
 let shangwu = "56dfe31594b858e69ef613f5e97227fbe9979240d7caecf84db127b47a4a8bb0a744376361788e9d4f8341978842c3a723b72e4befa3dc60a2c580bf4fc43399f798f286e2c8c3069effa1db27aa45bd",//990
-	xiawu = "56dfe31594b858e69ef613f5e97227fbe9979240d7caecf84db127b47a4a8bb0a744376361788e9d4f8341978842c3a723b72e4befa3dc60a2c580bf4fc43399f798f286e2c8c3069effa1db27aa45bd";//100
-    ksjsbjk = "https://ghproxy.com/https://raw.githubusercontent.com/LordlessCamelot/Lordless/master/expire/lordless/ksjsbjk.json",
-	ksjsbyq = "https://ghproxy.com/https://raw.githubusercontent.com/LordlessCamelot/Lordless/master/expire/lordless/ks.json";
+	xiawu = "56dfe31594b858e69ef613f5e97227fb67b973ad1394855c549442d15702f96393178eaeef5635134bb7e4ff97e69218c1f18455baf645dbaef685b7bf30c0914ea53ddcde26b2fa67b888203dab0fd4";//100
+    ksjsbjk = "",
+	ksjsbyq = "";
 	
 
 
