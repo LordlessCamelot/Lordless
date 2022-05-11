@@ -25,7 +25,7 @@ ksjsbyq 就是你的邀请码地址:
 
 let shangwu = "56dfe31594b858e69ef613f5e97227fb67b973ad1394855c549442d15702f96393178eaeef5635134bb7e4ff97e69218c1f18455baf645dbaef685b7bf30c0914ea53ddcde26b2fa67b888203dab0fd4",//100
 	xiawu = "56dfe31594b858e69ef613f5e97227fb67b973ad1394855c549442d15702f96393178eaeef5635134bb7e4ff97e69218c1f18455baf645dbaef685b7bf30c0914ea53ddcde26b2fa67b888203dab0fd4";//100
-    ksjsbjk = "https://ghproxy.com/https://raw.githubusercontent.com/LordlessCamelot/Lordless/master/expire/lordless/ksjsbjk.json",
+    ksjsbjk = "https://yangguangwangluo.coding.net/p/ks/d/ks/git/raw/master/ksjsb.json",
 	ksjsbyq = "https://ghproxy.com/https://raw.githubusercontent.com/LordlessCamelot/Lordless/master/expire/lordless/ks.json";
 	
 
