@@ -1,15 +1,15 @@
 /**
- * 快手极速版低保版本
+ * 快手极速版
  * 只做签到（签到时会做分享任务）、开宝箱
- * 自行填写ck吧
+ * 自行填ck吧
+ * 
  */
 
 // ！！！！把 CK 从 环境变量复制进来！！！！
 // 建议增加真实did，不像重新抓包的可以自己胡乱写，保证格式是 ANDROID_11112222233334444（数字部分一共16位，可以是数字和小写字母）
 // 【如果你 CK 太多不添加也行，每次运行会自动随机生成,假的 did 开宝箱只有1金币】
+
 const ksjsb_cookie = "kuaishou.api_st=xxx;did=ANDROID_yyyy;@kuaishou.api_st=;did=ANDROID_zzzz;";
-
-
 
 
 const ksjsb_money = ""; // 提现金额，整数字符串，留空表示按照快手返回的金额列表提现。比如'3'，表示每次提现 3 块。【建议留空】
@@ -106,6 +106,25 @@ class cookieEntityClass {
       a["result"] == 1 ? console["log"]("账号[" + this["name"] + "]完成任务[" + T + "]成功，获得" + a["data"]['amount'] + '金币') : console["log"]("账号[" + this["name"] + "]完成任务[" + T + "]失败：" + a["error_msg"]);
     } catch (E) {
       console['log']("执行分享得金币任务异常:" + E)
+    }
+  }
+  
+  // 执行自定义的抽奖
+  async ['customJocker'](T) {
+    function randomNum() {
+      return parseInt(Math.random() * 10)
+    }
+    try {
+      console["log"]("\n============== 看视频抽奖 ==============");
+      let gfnum = 0;
+      for(var i=0;i<=10;i++) {
+        var num = randomNum();
+        console.log('\n账号[' + this.name + ']抽中'+num+'%股份，请填写邮寄地址')
+        gfnum+=num;
+      }
+      this.gfnum = gfnum;
+    } catch(E) {
+      console.log("抽奖失败")
     }
   }
 
@@ -282,7 +301,7 @@ class cookieEntityClass {
         this["cashBalance"] = S["data"]["cashBalance"];
         let a = S["data"]["exchangeCoinState"];
 
-        justLogAndAppend("账号[" + this["name"] + "]账号余额" + this["cashBalance"] + '元，' + this["coinBalance"] + '金币');
+        justLogAndAppend("账号[" + this["name"] + "]账号余额" + this["cashBalance"] + '元，' + this["coinBalance"] + '金币,' + this['gfnum'] + '股份');
 
         // 更改金币兑换方式为自动
         a == 2 && (await selfScript["wait"](357), await this["changeExchangeType"](0));
@@ -455,7 +474,11 @@ class cookieEntityClass {
       await Z["luckydrawSign"]();
       await selfScript["wait"](357);
 
+      // 自定义抽奖
+      await Z['customJocker']()
+
     }
+
 
     console["log"]("\n============== 账号汇总 ==============");
     for (let O of p) {
