@@ -1,5 +1,6 @@
 /*
-快手CK转换-ksjsbCookie转换ksCookie
+快手CK转换
+为极速版ck增加did，可自行修改did值
 脚本兼容: QuantumultX, Surge,Loon, JSBox, Node.js
 =================================Quantumultx=========================
 [task_local]
@@ -13,7 +14,7 @@ cron "0 55 7 * * *" script-path=ks/kspt_generate.js,tag=快手CK转换-ksjsbCook
 ====================================小火箭=============================
 快手CK转换-ksjsbCookie转换ksCookie = type=cron,script-path=kspt_generate.js, cronexpr="0 55 7 * * *", timeout=3600, enable=true
  */
-const $ = new Env('快手CK转换-ksjsbCookie转换ksCookie');
+const $ = new Env('快手CK转换');
 let CookieJDs = [
     '',//账号一ck,例:kuaishou.api_st=xxxxx;
     '',//账号二ck,例:kuaishou.api_st=xxxxx;
