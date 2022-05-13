@@ -1,6 +1,7 @@
 /**
  * 快手极速版
  * 只做签到（签到时会做分享任务）、开宝箱
+ * 自行填ck吧
  * 
  */
 
@@ -8,19 +9,8 @@
 // 建议增加真实did，不像重新抓包的可以自己胡乱写，保证格式是 ANDROID_11112222233334444（数字部分一共16位，可以是数字和小写字母）
 // 【如果你 CK 太多不添加也行，每次运行会自动随机生成,假的 did 开宝箱只有1金币】
 
-const $ = new Env('快手极速版签到');
-
-let res,
-  ksjsbCookie = process.env.ksjsbCookie || '',
-  Users = [],
-  ksjsbCash = process.env.ksjsbCash || '',
-  ksjsbWithdrawTime = process.env.ksjsbWithdrawTime || 15,
-  ksjsbAggressive = process.env.ksjsbAggressive || 0,
-  ksjsbNotify = process.env.ksjsbNotify || 1,
-  index = 0,
-  count = 0;
-
-/*const ksjsb_cookie = "kuaishou.api_st=xxx;did=ANDROID_yyyy;@kuaishou.api_st=;did=ANDROID_zzzz;"; */
+const $ = new Env('快手极速版低保');
+const ksjsb_cookie = "kuaishou.api_st=xxx;did=ANDROID_yyyy;@kuaishou.api_st=;did=ANDROID_zzzz;";
 
 
 const ksjsb_money = ""; // 提现金额，整数字符串，留空表示按照快手返回的金额列表提现。比如'3'，表示每次提现 3 块。【建议留空】
