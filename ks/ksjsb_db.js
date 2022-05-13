@@ -9,7 +9,6 @@
 // 建议增加真实did，不像重新抓包的可以自己胡乱写，保证格式是 ANDROID_11112222233334444（数字部分一共16位，可以是数字和小写字母）
 // 【如果你 CK 太多不添加也行，每次运行会自动随机生成,假的 did 开宝箱只有1金币】
 
-const $ = new Env('快手极速版低保');
 const ksjsb_cookie = "kuaishou.api_st=xxx;did=ANDROID_yyyy;@kuaishou.api_st=;did=ANDROID_zzzz;";
 
 
