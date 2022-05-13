@@ -14,7 +14,7 @@ const ksjsb_cookie = "kuaishou.api_st=xxx;did=ANDROID_yyyy;@kuaishou.api_st=;did
 
 
 const ksjsb_money = ""; // 提现金额，整数字符串，留空表示按照快手返回的金额列表提现。比如'3'，表示每次提现 3 块。【建议留空】
-const ksjsb_hour = 8; // 提现时间，整数，精确到小时。比如 8 就是早上 8 点提现，如果在 8：00-8：59 这一个小时内，脚本没跑，那就是不自动提现【建议改掉】
+const ksjsb_hour = 22; // 提现时间，整数，精确到小时。比如 8 就是早上 8 点提现，如果在 8：00-8：59 这一个小时内，脚本没跑，那就是不自动提现【建议改掉】
 const ksjsb_allMoneyOut = 0; // 是否尝试全部提现，0 不全部提现, 1 全部提现。【建议0，配置成1小心黑号】
 const ksjsb_channel = "ALIPAY" // 提现渠道，ALIPAY 支付宝, WECHAT 微信【只有账号同时绑定了支付宝和微信时才生效，只绑定了支付宝咋提现到微信，对吧】
 const scriptTitle = "快手极速版";
