@@ -1,6 +1,6 @@
 /*
 快手CK转换
-为极速版ck增加did，可自行修改did值
+为极速版ck增加did，可自行修改did值，生成的值打印在log内，自行查看
 脚本兼容: QuantumultX, Surge,Loon, JSBox, Node.js
 =================================Quantumultx=========================
 [task_local]
