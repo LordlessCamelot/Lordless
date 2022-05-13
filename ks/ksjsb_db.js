@@ -1,5 +1,7 @@
 /*
-IOS/安卓： 快手极速版
+IOS/安卓： 快手极速版低保
+
+如想去除开宝箱可自行将189-235行代码注释
 
 15 2-13 * * * ksjsb_db.js tag=快手极速版低保
 
@@ -184,7 +186,7 @@ class ksUser {
     }
   }
   
-/*   //开箱子,1金币懒得搞 
+   //开箱子,1金币懒得搞 
   async openBox(_0x412555) {
     let _0x513362 =
         'https://nebula.kuaishou.com/rest/n/nebula/box/explore?isOpen=' +
@@ -230,12 +232,7 @@ class ksUser {
       : console.log(
           '🎈' + this.name + '=>查询宝箱状态失败：' + _0x15220b.error_msg
         );
-  } */
-
-
-
-
-  
+  }
 
 
 
