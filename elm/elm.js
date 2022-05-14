@@ -10,7 +10,7 @@ APP : 饿了么
 ##饿了么
 59 9,18 * * * elm.js
 变量：elmdh 兑换设置，默认为false,开启兑换，如需开启兑换，请设置为true
-变量：elmyqm 邀请码设置
+变量：elmyqm 邀请码设置 例：export elmyqm="e8d5163179"
 变量：SM_STARTTIME 值:默认为60，当为60时，9点59分运行脚本，10点准时开枪，如果网络慢可以设置为59，则9点59分59秒开抢。
 
 5.14 新增 吃货豆隐藏任务，日300+
@@ -31,7 +31,7 @@ let num = rand(10, 99)
 let umidToken = `defaultToken1_um_not_loaded@@https://tb.ele.me/wow/alsc/mod/d5275789de46503ba0908a9d@@${Date.now()}`
 let ua = `defaultUA1_uab_not_loaded@@https://tb.ele.me/wow/alsc/mod/d5275789de46503ba0908a9d@@${Date.now()}`
 let elmyqm = $.isNode() ? (process.env.elmyqm ? process.env.elmyqm : "") : ($.getdata('elmyqm') ? $.getdata('elmyqm') : "")
-let ownerId = 'bfb0188'
+let ownerId = 'e8d5163179'
 Date.prototype.Format = function (fmt) { //author: meizz
   var o = {
     "M+": this.getMonth() + 1, //月份
@@ -140,7 +140,7 @@ function qswcdl(timeout = 0) {
 
             if(elmyqm){
             if(k==0){
-              ownerId = 'bfb0188'
+              ownerId = 'e8d5163179'
             }else{
               ownerId=elmyqm
             }
