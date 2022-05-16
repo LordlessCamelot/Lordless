@@ -13,7 +13,6 @@
 25 7,19 * * * mt.js tag=美团
 */
 
-
 const $ = new Env('美团');
 
 let status;
@@ -52,7 +51,6 @@ let num = rand(10, 99), slcks = "",userId,uuid,inviteCode
         await notify.sendNotify(`美团天天神卷+赚米粒`, `${allMessage}`, '')
 
     }
-    destroyVM(global.vm);
 })()
     .catch((e) => $.logErr(e))
     .finally(() => $.done())
@@ -91,7 +89,6 @@ function qswcdl(timeout = 0) {
                         allMessage += '\n【天天神卷】🧧';
                         await sign();
                         await $.wait(1000)
-                        await renderinfo();
                         await clickReferralLink();
                         await $.wait(1000)
                         await gundamGrabV3();
