@@ -1,17 +1,15 @@
-/*
-美团天天神卷+赚米粒
-百度 美团登录自己抓Token ，美团小程序首页天天赚钱
-只支持青龙
-环境变量 mtTk （建议直接复制）
-多账号用 @
-如需关闭膨胀，请设置变量 sjpz 值：false
-本次更新：增加推送，可设置膨胀。
-推送依赖 https://gitee.com/xiecoll/radish-script/raw/master/MT/sendNotify.js
 
-如需设置邀请码，变量 meituanyq 优惠券邀请码
 
-0 0,9,18 * * * mt.js tag=美团
-*/
+//美团天天神卷+赚米粒
+//百度 美团登录自己抓Token ，美团小程序首页天天赚钱
+//只支持青龙
+// 环境变量 mtTk （建议直接复制）
+//多账号用 @
+//如需关闭膨胀，环境变量 sjpz 值：false
+//本次更新：增加推送，可设置膨胀。
+//推送依赖 https://gitee.com/xiecoll/radish-script/raw/master/MT/sendNotify.js
+
+//环境变量 meituanyq 优惠券邀请码
 
 const $ = new Env('美团');
 
@@ -46,6 +44,7 @@ let num = rand(10, 99), slcks = "",userId,uuid,inviteCode
         })
         console.log(`-------------共${slckArr.length}个账号-------------\n`)
 
+        //await qswcdl();
         for (let k = 0; k < slckArr.length; k++) {
             $.message = ""
             mtToken = slckArr[k]
@@ -124,100 +123,6 @@ let num = rand(10, 99), slcks = "",userId,uuid,inviteCode
     .catch((e) => $.logErr(e))
     .finally(() => $.done())
 
-
-function qswcdl(timeout = 0) {
-    return new Promise((resolve) => {
-        let url = {
-            url: '',
-            headers: ``,
-        }
-        $.get(url, async (err, resp, data) => {
-            try {
-
-                data = JSON.parse(data);
-                console.log('脚本状态' + data.msg1)
-                allMessage += '\n脚本状态' + data.msg1;
-              
-                    for (let k = 0; k < slckArr.length; k++) {
-                        $.message = ""
-                        mtToken = slckArr[k]
-                        $.index = k + 1;
-                         if(meituanyq==''){
-                            inviteCode=`NnOIp-QOs8SiYF1dcSlL5r8phPrCf6qkH7evMyjIoureqol0OXXaopfjjblE0yPgN86y4RcZwmbDNeilsjadKKx8C_xcAtb9biugMRpa1nHJplwNd25nXQxgtWHn9006X_TBXSsJXEvvpgsevw4IOO1GodOJn4IOG_sQpdLKzqo`
-                        }else{
-                            if(k==0){
-                                inviteCode=`NnOIp-QOs8SiYF1dcSlL5r8phPrCf6qkH7evMyjIoureqol0OXXaopfjjblE0yPgN86y4RcZwmbDNeilsjadKKx8C_xcAtb9biugMRpa1nHJplwNd25nXQxgtWHn9006X_TBXSsJXEvvpgsevw4IOO1GodOJn4IOG_sQpdLKzqo`
-                            }else{
-                                inviteCode=meituanyq
-                            }
-                        }
-                        console.log(`\n开始【美团账户 ${$.index}】`)
-                        allMessage += `\n开始【美团账户 ${$.index}】`;
-                        await getsharecard()
-                        console.log('\n【天天神卷】🧧');
-                        allMessage += '\n【天天神卷】🧧';
-                        await sign();
-                        await $.wait(1000)
-                        await clickReferralLink();
-                        await $.wait(1000)
-                        await gundamGrabV3();
-                        await $.wait(1000)
-                        await getConfig()
-                        await $.wait(1000)
-                        
-                        await fetchcoupon()
-                        await $.wait(1000)
-
-                        // await corepage();
-                        await shenquan()
-                        await $.wait(1000)
-
-                        console.log('\n【赚米粒】');
-                        allMessage += '\n【赚米粒】';
-
-                        await aggregationpage()
-                        await $.wait(1000)
-
-                        await signin()
-                        await $.wait(1000)
-
-                        await startvisittaskop()
-                        await $.wait(1000)
-
-                        await homepageicon()
-                        await $.wait(1000)
-
-                        await visittaskop()
-                        await $.wait(1000)
-
-                        await dinnersignin()
-                        await $.wait(1000)
-
-                       uuid =  randomString(64)
-
-                        await getmtuid()
-
-                      if(userId != undefined){
-                       await getuserInfo()
-
-                        await getUserTasks('["1fff834702"]')
-                        // await getUserTasks()
-
-                      }
-                        allMessage += '\n\n';
-
-                        $.log(`------------------任务结束------------------`)
-                    }
-
-                
-            } catch (e) {
-                $.logErr(e, resp);
-            } finally {
-                resolve()
-            }
-        }, 0)
-    })
-}
 
 
 //yq链接
