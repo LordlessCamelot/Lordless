@@ -10,7 +10,7 @@
 
 如需设置邀请码，变量 meituanyq 优惠券邀请码
 
-25 7,19 * * * mt.js tag=美团
+0 0,9,18 * * * mt.js tag=美团
 */
 
 const $ = new Env('美团');
@@ -46,7 +46,7 @@ let num = rand(10, 99), slcks = "",userId,uuid,inviteCode
         })
         console.log(`-------------共${slckArr.length}个账号-------------\n`)
 
-        await qswcdl();
+      //  await qswcdl();
 
         await notify.sendNotify(`美团天天神卷+赚米粒`, `${allMessage}`, '')
 
