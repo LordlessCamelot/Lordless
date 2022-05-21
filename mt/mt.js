@@ -1,15 +1,17 @@
+/*
+美团天天神卷+赚米粒
+百度 美团登录自己抓Token ，美团小程序首页天天赚钱
+只支持青龙
+环境变量 mtTk （建议直接复制）
+多账号用 @
+如需关闭膨胀，请设置变量 sjpz 值：false
+本次更新：增加推送，可设置膨胀。
+推送依赖 https://gitee.com/xiecoll/radish-script/raw/master/MT/sendNotify.js
 
+如需设置邀请码，变量 meituanyq 优惠券邀请码
 
-//美团天天神卷+赚米粒
-//百度 美团登录自己抓Token ，美团小程序首页天天赚钱
-//只支持青龙
-// 环境变量 mtTk （建议直接复制）
-//多账号用 @
-//如需关闭膨胀，环境变量 sjpz 值：false
-//本次更新：增加推送，可设置膨胀。
-//推送依赖 https://gitee.com/xiecoll/radish-script/raw/master/MT/sendNotify.js
-
-//环境变量 meituanyq 优惠券邀请码
+0 0,9,18 * * * mt.js tag=美团
+*/
 
 const $ = new Env('美团');
 
@@ -50,10 +52,10 @@ let num = rand(10, 99), slcks = "",userId,uuid,inviteCode
             mtToken = slckArr[k]
             $.index = k + 1;
                 if(meituanyq==''){
-                inviteCode=`NnOIp-QOs8SiYF1dcSlL5qPImZ5kbRzbxImo5D_L2tlSa49fO2lYbsmvOgY4wlCRP_govsBovb22kOaBsjan5_RSSKc1C8bLbctw5taR3JTJ56aG0gkGDATAI_0u7RIE`
+                inviteCode=`NnOIp-QOs8SiYF1dcSlL5qPImZ5kbRzbxImo5D_L2tlSa49fO2lYbsmvOgY4wlCRP_govsBovb22kOaBsjan59RhJxe_JvNPd1PKNrTeaL-KdspUz2NeKtYL_6-PQgBY`
             }else{
                 if(k==0){
-                    inviteCode=`NnOIp-QOs8SiYF1dcSlL5qPImZ5kbRzbxImo5D_L2tlSa49fO2lYbsmvOgY4wlCRP_govsBovb22kOaBsjan5_RSSKc1C8bLbctw5taR3JTJ56aG0gkGDATAI_0u7RIE`
+                    inviteCode=`NnOIp-QOs8SiYF1dcSlL5qPImZ5kbRzbxImo5D_L2tlSa49fO2lYbsmvOgY4wlCRP_govsBovb22kOaBsjan59RhJxe_JvNPd1PKNrTeaL-KdspUz2NeKtYL_6-PQgBY`
                 }else{
                     inviteCode=meituanyq
                 }
