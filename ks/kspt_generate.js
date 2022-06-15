@@ -31,7 +31,7 @@ let cookiesArr = CookieJDs, cookie = '', message;
 let Cookiee = '';
 for (let i = 0; i < cookiesArr.length; i++) {
     if (cookiesArr[i]) {
-        Cookiee += cookiesArr[i] + "kpn=NEBULA; kpf=ANDROID_PHONE;did=ANDROID_915d04d3e08b51be;@";
+        Cookiee += cookiesArr[i] + "kpn=NEBULA; kpf=ANDROID_PHONE;did=ANDROID_950eafbe102da99b;@";
     }
 }
 console.log("\n普通版快手配置\n")
