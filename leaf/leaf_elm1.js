@@ -26,7 +26,7 @@ export elmCookie="捉包里的Cookie全部内容"
 饿了么app 或 支付宝饿了么小程序 -> 我的 -> 赚吃货豆
 [task_local]
 #饿了么
-58 9,20 * * * https://raw.githubusercontent.com/leafTheFish/DeathNote/main/elm.js, tag=饿了么, enabled=true
+58 9,20 * * * elm.js, tag=饿了么, enabled=true
 [rewrite_local]
 https://h5.ele.me/restapi/biz.growth_finetune/v1/finetune/operate? url script-request-header https://raw.githubusercontent.com/leafTheFish/DeathNote/main/elm.js
 [MITM]
