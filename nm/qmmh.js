@@ -5,7 +5,7 @@ APP：https://shareact.50manhua.com/2020/0820_inviteFriend/main?pName=qmmh
 比如
 export qmmhhd='抓的access-token'
 多账号@隔开
-corn 0 1 * * *
+corn 0 1 * * * qmmh.js
 */
 
 const $ = new Env('全免漫画');
